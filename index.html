@@ -10,7 +10,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <!-- Changez « ?v= » à chaque mise à jour pour que les navigateurs rechargent les fichiers -->
+  <link rel="stylesheet" href="css/style.css?v=2">
 </head>
 <body>
 
@@ -59,7 +60,7 @@
             <a href="#contact" class="btn btn-ghost" data-i18n="hero.cta2">Nous contacter</a>
           </div>
         </div>
-        <div class="hero-art" aria-hidden="true">
+        <a href="#jouer" class="hero-art" aria-label="Volte-face" data-i18n-aria="hero.playLink">
           <div class="mini-board">
             <span class="t p1" style="--r:1"></span>
             <span class="t" style="--r:2"></span>
@@ -73,7 +74,7 @@
           </div>
           <div class="die die-a"><i></i><i></i><i></i></div>
           <div class="die die-b"><i></i><i></i></div>
-        </div>
+        </a>
       </div>
     </section>
 
@@ -213,9 +214,9 @@
     </div>
   </footer>
 
-  <script src="js/i18n.js" defer></script>
-  <script src="js/projects.js" defer></script>
-  <script src="js/main.js" defer></script>
-  <script src="js/game.js" defer></script>
+  <script src="js/i18n.js?v=2" defer></script>
+  <script src="js/projects.js?v=2" defer></script>
+  <script src="js/main.js?v=2" defer></script>
+  <script src="js/game.js?v=2" defer></script>
 </body>
 </html>

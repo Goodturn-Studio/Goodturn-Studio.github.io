@@ -1,5 +1,5 @@
 /* Volte-face / Turnabout — mini-jeu original de Goodturn Studio.
-   Chaque coup : une case pivote d'un quart de tour, devient la vôtre,
+   Chaque coup : la flèche d'une case se retourne (change de sens), la case devient la vôtre,
    puis sa flèche capture en chaîne les cases visées. */
 (function () {
   const SIZE = 5;
@@ -20,7 +20,8 @@
   const valueEls = [null, document.getElementById('value-p1'), document.getElementById('value-p2')];
 
   let game;          // état logique de la partie
-  let rot;           // rotation cumulée de chaque flèche (évite qu'elle « revienne en arrière »)
+  let baseDir;       // orientation de départ de chaque flèche
+  let flips;         // nombre de retournements de chaque flèche (l'animation ne revient jamais en arrière)
   let cells = [];
   let busy = false;
   let selected = -1;
@@ -34,7 +35,7 @@
     const p = state.player;
     const dir = state.dir.slice();
     const owner = state.owner.slice();
-    dir[idx] = (dir[idx] + 1) % 4;
+    dir[idx] = (dir[idx] + 2) % 4;
     owner[idx] = p;
     const chain = [idx];
     let cur = idx;
@@ -158,7 +159,9 @@
       cell.classList.add('owner-' + game.owner[i]);
       cell.classList.toggle('legal', humanCanPlay && game.owner[i] !== opponent);
       cell.disabled = !(humanCanPlay && game.owner[i] !== opponent);
-      cell.querySelector('.arrow').style.setProperty('--rot', rot[i]);
+      const arrow = cell.querySelector('.arrow');
+      arrow.style.setProperty('--dir', baseDir[i]);
+      arrow.style.setProperty('--flip', flips[i]);
       cell.setAttribute('aria-label', t('game.cell', { r: Math.floor(i / SIZE) + 1, c: (i % SIZE) + 1 }));
     });
     renderHud();
@@ -213,9 +216,9 @@
     const p = game.player;
     const next = play(game, idx);
 
-    rot[idx]++;
-    cells[idx].querySelector('.arrow').style.setProperty('--rot', rot[idx]);
-    await wait(230);
+    flips[idx]++;
+    cells[idx].querySelector('.arrow').style.setProperty('--flip', flips[idx]);
+    await wait(330);
 
     for (const c of next.chain) {
       if (id !== gameId) return;
@@ -276,7 +279,8 @@
     selected = -1;
     const dir = Array.from({ length: CELLS }, () => Math.floor(Math.random() * 4));
     game = { dir, owner: new Array(CELLS).fill(0), player: 1, moves: 0 };
-    rot = dir.slice();
+    baseDir = dir.slice();
+    flips = new Array(CELLS).fill(0);
     buildBoard();
     nextTurn();
   }
