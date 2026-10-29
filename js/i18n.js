@@ -30,14 +30,6 @@
       'f5.title': 'Sur PC et mobile',
       'f5.text': 'Jouable sur ordinateur, téléphone et tablette, avec une interface pensée pour chaque écran.',
 
-      'process.title': 'Éditeurs, auteurs : comment on travaille',
-      's1.title': 'On découvre votre jeu',
-      's1.text': 'Vous nous présentez le jeu, ses règles et son public. On identifie ce que le numérique peut lui apporter.',
-      's2.title': 'Un prototype jouable',
-      's2.text': 'Une première version pour valider les règles, l’IA et les sensations de jeu.',
-      's3.title': 'Production et sortie',
-      's3.text': 'Graphismes, modes de jeu, tests, puis publication sur PC et mobile.',
-
       'projects.kicker': 'Projets',
       'projects.title': 'Nos jeux',
       'projects.empty': 'Nos premiers titres sont en préparation. Revenez bientôt… ou proposez-nous le vôtre !',
@@ -118,14 +110,6 @@
       'f4.text': 'Challenges, campaigns, variants: new ways to play that are impossible around a table.',
       'f5.title': 'On PC and mobile',
       'f5.text': 'Playable on computer, phone and tablet, with an interface designed for every screen.',
-
-      'process.title': 'Publishers and designers: how we work',
-      's1.title': 'We discover your game',
-      's1.text': 'You introduce the game, its rules and its audience. We figure out what digital can bring to it.',
-      's2.title': 'A playable prototype',
-      's2.text': 'A first version to validate the rules, the AI and the game feel.',
-      's3.title': 'Production and release',
-      's3.text': 'Art, game modes, testing, then release on PC and mobile.',
 
       'projects.kicker': 'Projects',
       'projects.title': 'Our games',
