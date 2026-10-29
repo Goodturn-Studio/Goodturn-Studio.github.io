@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Goodturn Studio</title>
+  <meta name="description" content="Goodturn Studio adapte les jeux de société en jeux vidéo pour PC et mobile.">
+  <meta name="theme-color" content="#FFF8EE">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Clin d'œil « plateau de jeu » : un pion avance avec le défilement -->
+  <div class="scroll-track" aria-hidden="true">
+    <div class="scroll-pawn"></div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="brand" aria-label="Goodturn Studio">
+        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+          <rect x="2" y="2" width="36" height="36" rx="10" fill="#FF6B57"/>
+          <path d="M28.5 23.1A9 9 0 1 1 26.9 14.2" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round"/>
+          <path d="M28.5 16.1 23.4 15.1 28.4 10.9Z" fill="#fff"/>
+          <circle cx="20" cy="20" r="3" fill="#FFC93C"/>
+        </svg>
+        <span class="brand-name">goodturn<span class="brand-studio">studio</span></span>
+      </a>
+      <nav class="main-nav" aria-label="Navigation">
+        <ul>
+          <li><a href="#studio" data-i18n="nav.studio">Studio</a></li>
+          <li><a href="#projets" data-i18n="nav.projects">Projets</a></li>
+          <li><a href="#jouer" data-i18n="nav.play">Jouer</a></li>
+          <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch" role="group" aria-label="Langue / Language">
+        <button type="button" data-lang="fr">FR</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- Accueil -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <p class="kicker" data-i18n="hero.kicker">Studio de jeux vidéo</p>
+          <h1 data-i18n-html="hero.title">Vos jeux de société, <em>en encore mieux</em>.</h1>
+          <p class="lead" data-i18n="hero.text">Goodturn Studio adapte les jeux de société en jeux vidéo pour PC et mobile : plus beaux, plus simples à prendre en main, avec des IA à affronter et des modes de jeu inédits.</p>
+          <div class="hero-actions">
+            <a href="#jouer" class="btn btn-primary" data-i18n="hero.cta1">Jouer à notre mini-jeu</a>
+            <a href="#contact" class="btn btn-ghost" data-i18n="hero.cta2">Nous contacter</a>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="mini-board">
+            <span class="t p1" style="--r:1"></span>
+            <span class="t" style="--r:2"></span>
+            <span class="t p2" style="--r:3"></span>
+            <span class="t p1" style="--r:0"></span>
+            <span class="t p1" style="--r:1"></span>
+            <span class="t" style="--r:2"></span>
+            <span class="t" style="--r:0"></span>
+            <span class="t p2" style="--r:3"></span>
+            <span class="t p2" style="--r:0"></span>
+          </div>
+          <div class="die die-a"><i></i><i></i><i></i></div>
+          <div class="die die-b"><i></i><i></i></div>
+          <div class="pawn-deco"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ce qu'on apporte -->
+    <section class="section" id="studio">
+      <div class="container">
+        <p class="kicker" data-i18n="features.kicker">Le studio</p>
+        <h2 data-i18n="features.title">Ce que le numérique apporte à votre jeu</h2>
+        <div class="features">
+          <article class="feature" style="--accent: var(--coral)">
+            <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></div>
+            <h3 data-i18n="f1.title">Plus beau qu'en vrai</h3>
+            <p data-i18n="f1.text">Animations, effets et plateaux vivants : votre univers prend une toute nouvelle dimension.</p>
+          </article>
+          <article class="feature" style="--accent: var(--teal)">
+            <div class="feature-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l5 3.5-5 3.5z"/></svg></div>
+            <h3 data-i18n="f2.title">Plus facile à jouer</h3>
+            <p data-i18n="f2.text">Pas de mise en place, pas de calculs, pas de règles oubliées : le jeu s'occupe de tout et guide les joueurs.</p>
+          </article>
+          <article class="feature" style="--accent: var(--lilac)">
+            <div class="feature-icon"><svg viewBox="0 0 24 24"><rect x="5" y="8" width="14" height="11" rx="3"/><path d="M12 4v4"/><circle cx="12" cy="3.5" r="1"/><circle cx="9.5" cy="13.5" r="1.2"/><circle cx="14.5" cy="13.5" r="1.2"/></svg></div>
+            <h3 data-i18n="f3.title">Des IA à affronter</h3>
+            <p data-i18n="f3.text">Plusieurs niveaux de difficulté pour jouer seul, apprendre à son rythme ou s'entraîner.</p>
+          </article>
+          <article class="feature" style="--accent: var(--mustard)">
+            <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M3 7h4l10 10h4"/><path d="M3 17h4l3-3"/><path d="M14 10l3-3h4"/><path d="M18 4l3 3-3 3"/><path d="M18 14l3 3-3 3"/></svg></div>
+            <h3 data-i18n="f4.title">Des modes inédits</h3>
+            <p data-i18n="f4.text">Défis, campagnes, variantes : de nouvelles façons de jouer, impossibles autour d'une table.</p>
+          </article>
+          <article class="feature" style="--accent: var(--ink)">
+            <div class="feature-icon"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="14" height="10" rx="1.5"/><path d="M6 18h6"/><path d="M9 14v4"/><rect x="17" y="8" width="5" height="12" rx="1.2"/></svg></div>
+            <h3 data-i18n="f5.title">Sur PC et mobile</h3>
+            <p data-i18n="f5.text">Jouable sur ordinateur, téléphone et tablette, avec une interface pensée pour chaque écran.</p>
+          </article>
+        </div>
+
+        <div class="process">
+          <h3 class="process-title" data-i18n="process.title">Éditeurs, auteurs : comment on travaille</h3>
+          <ol class="steps">
+            <li class="step">
+              <span class="step-die">1</span>
+              <h4 data-i18n="s1.title">On découvre votre jeu</h4>
+              <p data-i18n="s1.text">Vous nous présentez le jeu, ses règles et son public. On identifie ce que le numérique peut lui apporter.</p>
+            </li>
+            <li class="step">
+              <span class="step-die">2</span>
+              <h4 data-i18n="s2.title">Un prototype jouable</h4>
+              <p data-i18n="s2.text">Une première version pour valider les règles, l'IA et les sensations de jeu.</p>
+            </li>
+            <li class="step">
+              <span class="step-die">3</span>
+              <h4 data-i18n="s3.title">Production et sortie</h4>
+              <p data-i18n="s3.text">Graphismes, modes de jeu, tests, puis publication sur PC et mobile.</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projets -->
+    <section class="section section-alt" id="projets">
+      <div class="container">
+        <p class="kicker" data-i18n="projects.kicker">Projets</p>
+        <h2 data-i18n="projects.title">Nos jeux</h2>
+        <p class="section-lead" id="projects-lead" data-i18n="projects.empty">Nos premiers titres sont en préparation. Revenez bientôt… ou proposez-nous le vôtre !</p>
+        <div class="projects" id="projects-grid"></div>
+      </div>
+    </section>
+
+    <!-- Mini-jeu -->
+    <section class="section section-game" id="jouer">
+      <div class="container">
+        <p class="kicker" data-i18n="game.kicker">Mini-jeu maison</p>
+        <h2 data-i18n="game.title">Volte-face</h2>
+        <p class="section-lead" data-i18n="game.intro">Un petit jeu original conçu par le studio. Faites pivoter les flèches, déclenchez des réactions en chaîne et prenez le contrôle du plateau.</p>
+
+        <div class="game">
+          <div class="game-board-wrap">
+            <div class="game-board" id="game-board" role="grid"></div>
+            <p class="game-status" id="game-status" aria-live="polite"></p>
+          </div>
+
+          <aside class="game-panel">
+            <div class="scores">
+              <div class="score score-p1" id="score-p1">
+                <span class="score-dot"></span>
+                <span class="score-name" id="name-p1"></span>
+                <span class="score-value" id="value-p1">0</span>
+              </div>
+              <div class="score score-p2" id="score-p2">
+                <span class="score-dot"></span>
+                <span class="score-name" id="name-p2"></span>
+                <span class="score-value" id="value-p2">0</span>
+              </div>
+            </div>
+            <p class="game-round" id="game-round"></p>
+
+            <div class="game-controls">
+              <label for="game-mode" data-i18n="game.opponent">Adversaire</label>
+              <select id="game-mode">
+                <option value="easy" data-i18n="game.easy">IA facile</option>
+                <option value="normal" data-i18n="game.normal" selected>IA normale</option>
+                <option value="hard" data-i18n="game.hard">IA difficile</option>
+                <option value="duo" data-i18n="game.duo">2 joueurs</option>
+              </select>
+              <button type="button" class="btn btn-primary btn-small" id="game-new" data-i18n="game.new">Nouvelle partie</button>
+            </div>
+
+            <div class="rules">
+              <h3 data-i18n="game.rulesTitle">Règles</h3>
+              <ol>
+                <li data-i18n="game.rule1">À votre tour, choisissez une case neutre ou à vous : elle pivote d'un quart de tour et devient la vôtre.</li>
+                <li data-i18n="game.rule2">Sa flèche capture la case visée, puis la flèche de celle-ci, et ainsi de suite. La chaîne s'arrête au bord du plateau ou sur une de vos cases.</li>
+                <li data-i18n="game.rule3">Après 8 tours chacun, celui qui possède le plus de cases gagne.</li>
+              </ol>
+              <p class="rules-tip" data-i18n="game.tip">Astuce : survolez une case (ou touchez-la une fois sur mobile) pour voir la chaîne avant de jouer.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <div class="container contact">
+        <div class="contact-text">
+          <p class="kicker" data-i18n="contact.kicker">Contact</p>
+          <h2 data-i18n="contact.title">Parlons de votre jeu</h2>
+          <p class="section-lead" data-i18n="contact.text">Éditeur, auteur ou simplement curieux ? Écrivez-nous, on vous répond rapidement.</p>
+        </div>
+        <form class="contact-form" id="contact-form" novalidate>
+          <div class="field">
+            <label for="cf-name" data-i18n="contact.name">Nom</label>
+            <input id="cf-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="cf-email" data-i18n="contact.email">Email</label>
+            <input id="cf-email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="cf-role" data-i18n="contact.role">Vous êtes</label>
+            <select id="cf-role" name="role">
+              <option value="publisher" data-i18n="contact.rolePublisher">Éditeur</option>
+              <option value="author" data-i18n="contact.roleAuthor">Auteur ou autrice</option>
+              <option value="player" data-i18n="contact.rolePlayer">Joueur ou joueuse</option>
+              <option value="other" data-i18n="contact.roleOther">Autre</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="cf-message" data-i18n="contact.message">Message</label>
+            <textarea id="cf-message" name="message" rows="5" required></textarea>
+          </div>
+          <!-- Anti-spam : champ invisible que seuls les robots remplissent -->
+          <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button type="submit" class="btn btn-primary" data-i18n="contact.send">Envoyer</button>
+          <p class="form-feedback" id="form-feedback" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© <span id="year">2026</span> Goodturn Studio</span>
+      <span data-i18n="footer.tagline">Fait avec amour et beaucoup de dés.</span>
+    </div>
+  </footer>
+
+  <script src="js/i18n.js" defer></script>
+  <script src="js/projects.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/game.js" defer></script>
+</body>
+</html>
