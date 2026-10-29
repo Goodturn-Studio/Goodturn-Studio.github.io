@@ -1,8 +1,8 @@
 /* Comportements généraux du site : langue, projets, formulaire, pion de défilement. */
 (function () {
-  // Adresse du service d'envoi du formulaire (ex. Formspree : 'https://formspree.io/f/xxxxxxx').
-  // Laissez vide tant qu'aucune adresse email n'est configurée.
-  const CONTACT_ENDPOINT = '';
+  // Service d'envoi du formulaire (FormSubmit). Après activation, vous pouvez remplacer
+  // l'adresse email par l'alias fourni par FormSubmit pour ne plus l'afficher dans le code.
+  const CONTACT_ENDPOINT = 'https://formsubmit.co/ajax/contact@goodturnstudio.fr';
 
   const { t } = window.GT;
 
@@ -114,7 +114,8 @@
         headers: { Accept: 'application/json' },
         body: new FormData(form)
       });
-      if (!res.ok) throw new Error(res.status);
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || String(data.success) !== 'true') throw new Error(data.message || res.status);
       form.reset();
       setFeedback('contact.ok', 'ok');
     } catch (err) {

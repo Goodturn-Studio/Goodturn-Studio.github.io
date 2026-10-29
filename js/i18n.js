@@ -60,6 +60,7 @@
 
       'contact.title': 'Parlons de votre jeu',
       'contact.text': 'Éditeur, auteur ou simplement curieux ? Écrivez-nous, on vous répond rapidement.',
+      'contact.direct': 'Ou directement par email :',
       'contact.name': 'Nom',
       'contact.email': 'Email',
       'contact.role': 'Vous êtes',
@@ -134,6 +135,7 @@
 
       'contact.title': 'Let’s talk about your game',
       'contact.text': 'Publisher, designer or just curious? Drop us a line, we’ll get back to you quickly.',
+      'contact.direct': 'Or simply email us:',
       'contact.name': 'Name',
       'contact.email': 'Email',
       'contact.role': 'You are',

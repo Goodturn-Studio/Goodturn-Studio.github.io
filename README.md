@@ -15,7 +15,9 @@ Site statique (HTML, CSS, JavaScript), sans outil de compilation. Ouvrez `index.
 
 **Ajouter un projet** : copiez le modèle en commentaire dans `js/projects.js` et mettez les images dans `assets/projects/`.
 
-**Activer le formulaire de contact** : créez un formulaire gratuit sur [Formspree](https://formspree.io) avec votre adresse email, puis collez l'URL obtenue dans `CONTACT_ENDPOINT` en haut de `js/main.js`.
+**Formulaire de contact** : les messages sont envoyés à contact@goodturnstudio.fr via [FormSubmit](https://formsubmit.co) (gratuit, sans compte). L'adresse de réception se règle dans `CONTACT_ENDPOINT` en haut de `js/main.js`. Lors du tout premier envoi, FormSubmit envoie un email d'activation à cette adresse : il faut cliquer sur le lien pour que les messages suivants arrivent.
+
+**Après une modification du CSS ou du JS** : augmentez le numéro `?v=` dans `index.html` pour que les visiteurs ne gardent pas l'ancienne version en cache.
 
 **Modifier un texte** : changez-le dans `js/i18n.js`, pour les deux langues.
 
