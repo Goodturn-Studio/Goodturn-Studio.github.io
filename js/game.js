@@ -7,7 +7,7 @@
   const TURNS_EACH = 8;
   const TOTAL_MOVES = TURNS_EACH * 2;
   const DIRS = [[0, -1], [1, 0], [0, 1], [-1, 0]]; // haut, droite, bas, gauche
-  const AI_DEPTH = { easy: 1, normal: 2, hard: 4 };
+  const AI_DEPTH = 2; // assez joueur pour être un vrai adversaire, sans être imbattable
 
   const boardEl = document.getElementById('game-board');
   if (!boardEl) return;
@@ -15,7 +15,6 @@
   const { t } = window.GT;
   const statusEl = document.getElementById('game-status');
   const roundEl = document.getElementById('game-round');
-  const modeEl = document.getElementById('game-mode');
   const scoreEls = [null, document.getElementById('score-p1'), document.getElementById('score-p2')];
   const nameEls = [null, document.getElementById('name-p1'), document.getElementById('name-p2')];
   const valueEls = [null, document.getElementById('value-p1'), document.getElementById('value-p2')];
@@ -102,16 +101,13 @@
     return arr;
   }
 
-  function chooseAiMove(state, level) {
+  function chooseAiMove(state) {
     const moves = shuffle(legalMoves(state));
-    // L'IA facile joue parfois au hasard pour laisser une chance
-    if (level === 'easy' && Math.random() < 0.45) return moves[0];
     const me = state.player;
-    const depth = AI_DEPTH[level] || 2;
     let best = moves[0];
     let bestValue = -Infinity;
     for (const m of moves) {
-      const v = search(play(state, m), depth - 1, -Infinity, Infinity, me);
+      const v = search(play(state, m), AI_DEPTH - 1, -Infinity, Infinity, me);
       if (v > bestValue) { bestValue = v; best = m; }
     }
     return best;
@@ -120,8 +116,8 @@
   /* ---------- Affichage ---------- */
 
   const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
-  const isAiTurn = () => modeEl.value !== 'duo' && game.player === 2;
-  const playerName = p => modeEl.value === 'duo' ? t(p === 1 ? 'game.p1' : 'game.p2') : t(p === 1 ? 'game.you' : 'game.ai');
+  const isAiTurn = () => game.player === 2;
+  const playerName = p => t(p === 1 ? 'game.you' : 'game.ai');
 
   function setStatus(key, vars) {
     status = { key, vars };
@@ -258,20 +254,18 @@
       setStatus('game.aiThinking');
       await wait(450 + Math.random() * 350);
       if (id !== gameId) return;
-      const move = chooseAiMove(game, modeEl.value);
+      const move = chooseAiMove(game);
       busy = false;
       return doMove(move);
     }
 
-    if (modeEl.value === 'duo') setStatus('game.turnOf', { p: playerName(game.player) });
-    else setStatus('game.yourTurn');
+    setStatus('game.yourTurn');
   }
 
   function finish() {
     const s1 = score(game, 1);
     const s2 = score(game, 2);
     if (s1 === s2) setStatus('game.draw');
-    else if (modeEl.value === 'duo') setStatus('game.winner', { p: playerName(s1 > s2 ? 1 : 2) });
     else setStatus(s1 > s2 ? 'game.win' : 'game.lose');
     render();
   }
@@ -288,7 +282,6 @@
   }
 
   document.getElementById('game-new').addEventListener('click', newGame);
-  modeEl.addEventListener('change', newGame);
   window.GT.onChange(() => {
     render();
     if (status.key) statusEl.textContent = t(status.key, status.vars);

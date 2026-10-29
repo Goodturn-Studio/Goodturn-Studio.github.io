@@ -677,8 +677,6 @@ a { color: inherit; }
   border-top: 1px solid var(--line);
 }
 
-.game-controls label { width: 100%; font-weight: 800; font-size: .9rem; }
-
 select,
 input,
 textarea {
@@ -689,8 +687,6 @@ textarea {
   border-radius: var(--radius-sm);
   padding: .55em .8em;
 }
-
-.game-controls select { flex: 1; min-width: 140px; }
 
 .rules { margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--line); }
 .rules h3 { font-size: 1.1rem; }
