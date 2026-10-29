@@ -5,7 +5,7 @@
   const CONTACT_ENDPOINT = 'https://formsubmit.co/ajax/contact@goodturnstudio.fr';
 
   // Objet des emails reçus : {name} et {role} sont remplacés par les valeurs du formulaire.
-  const EMAIL_SUBJECT = 'Nouveau message de {name} ({role}) - goodturnstudio.fr';
+  const EMAIL_SUBJECT = '{name} ({role})';
   const ROLE_LABELS = { publisher: 'Éditeur', author: 'Auteur', player: 'Joueur', other: 'Autre' };
 
   const { t } = window.GT;
