@@ -667,6 +667,11 @@ textarea {
 .contact-form .btn { justify-self: start; }
 .hp { position: absolute; left: -9999px; }
 
+.section-dark { background: var(--ink); color: var(--cream); }
+.section-dark .kicker { background: var(--coral); color: #fff; }
+.section-dark .section-lead { color: rgba(255, 248, 238, .75); }
+.section-dark .contact-form { color: var(--ink); border-color: var(--paper); box-shadow: 0 6px 0 var(--coral); }
+
 .form-feedback { margin: 0; min-height: 1.4em; font-weight: 700; }
 .form-feedback.ok { color: var(--teal-dark); }
 .form-feedback.err { color: var(--coral-dark); }
@@ -674,7 +679,7 @@ textarea {
 
 /* ---------- Pied de page ---------- */
 
-.site-footer { padding: 28px 0; background: var(--ink); color: var(--cream); font-size: .95rem; }
+.site-footer { padding: 28px 0; background: var(--ink); color: rgba(255, 248, 238, .6); font-size: .95rem; border-top: 1px solid rgba(255, 248, 238, .12); }
 .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
 
 /* ---------- Responsive ---------- */

@@ -78,9 +78,7 @@
       'contact.invalid': 'Merci de remplir tous les champs avec un email valide.',
       'contact.ok': 'Merci ! Votre message est bien parti, on revient vers vous très vite.',
       'contact.err': 'Oups, l’envoi a échoué. Réessayez dans quelques instants.',
-      'contact.notReady': 'Le formulaire n’est pas encore relié à notre boîte mail. Revenez très bientôt !',
-
-      'footer.tagline': 'Fait avec amour et beaucoup de dés.'
+      'contact.notReady': 'Le formulaire n’est pas encore relié à notre boîte mail. Revenez très bientôt !'
     },
 
     en: {
@@ -159,9 +157,7 @@
       'contact.invalid': 'Please fill in every field with a valid email.',
       'contact.ok': 'Thanks! Your message is on its way, we’ll get back to you soon.',
       'contact.err': 'Oops, sending failed. Please try again in a moment.',
-      'contact.notReady': 'The form isn’t connected to our inbox yet. Come back very soon!',
-
-      'footer.tagline': 'Made with love and lots of dice.'
+      'contact.notReady': 'The form isn’t connected to our inbox yet. Come back very soon!'
     }
   };
 
