@@ -73,7 +73,7 @@
       'contact.sending': 'Envoi en cours…',
       'contact.invalid': 'Merci de remplir tous les champs avec un email valide.',
       'contact.ok': 'Merci ! Votre message est bien parti, on revient vers vous très vite.',
-      'contact.err': 'Oups, l’envoi a échoué. Réessayez dans quelques instants.'
+      'contact.err': 'Oups, l’envoi a échoué. Écrivez-nous directement à contact@goodturnstudio.fr.'
     },
 
     en: {
@@ -147,7 +147,7 @@
       'contact.sending': 'Sending…',
       'contact.invalid': 'Please fill in every field with a valid email.',
       'contact.ok': 'Thanks! Your message is on its way, we’ll get back to you soon.',
-      'contact.err': 'Oops, sending failed. Please try again in a moment.'
+      'contact.err': 'Oops, sending failed. Please email us directly at contact@goodturnstudio.fr.'
     }
   };
 
