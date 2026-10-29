@@ -1,8 +1,9 @@
 /* Comportements généraux du site : langue, projets, formulaire, pion de défilement. */
 (function () {
-  // Service d'envoi du formulaire (FormSubmit). Après activation, vous pouvez remplacer
-  // l'adresse email par l'alias fourni par FormSubmit pour ne plus l'afficher dans le code.
-  const CONTACT_ENDPOINT = 'https://formsubmit.co/ajax/contact@goodturnstudio.fr';
+  // Service d'envoi du formulaire (Web3Forms). La clé est liée à contact@goodturnstudio.fr ;
+  // elle est publique par conception et peut rester dans le code.
+  const CONTACT_ENDPOINT = 'https://api.web3forms.com/submit';
+  const WEB3FORMS_KEY = '017e5b0d-f256-4cb4-acee-cce7cae69c8e';
 
   // Objet des emails reçus : {name} et {role} sont remplacés par les valeurs du formulaire.
   const EMAIL_SUBJECT = '{name} ({role})';
@@ -111,8 +112,10 @@
     const name = data.get('name').trim();
     const role = ROLE_LABELS[data.get('role')] || data.get('role');
     data.set('role', role);
-    data.set('_subject', EMAIL_SUBJECT.replace('{name}', name).replace('{role}', role));
-    data.set('_replyto', data.get('email').trim());
+    data.set('access_key', WEB3FORMS_KEY);
+    data.set('subject', EMAIL_SUBJECT.replace('{name}', name).replace('{role}', role));
+    data.set('from_name', name);
+    data.set('replyto', data.get('email').trim());
 
     const button = form.querySelector('button[type="submit"]');
     button.disabled = true;

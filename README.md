@@ -15,7 +15,7 @@ Site statique (HTML, CSS, JavaScript), sans outil de compilation. Ouvrez `index.
 
 **Ajouter un projet** : copiez le modèle en commentaire dans `js/projects.js` et mettez les images dans `assets/projects/`.
 
-**Formulaire de contact** : les messages sont envoyés à contact@goodturnstudio.fr via [FormSubmit](https://formsubmit.co) (gratuit, sans compte). L'adresse de réception se règle dans `CONTACT_ENDPOINT` en haut de `js/main.js`. Lors du tout premier envoi, FormSubmit envoie un email d'activation à cette adresse : il faut cliquer sur le lien pour que les messages suivants arrivent.
+**Formulaire de contact** : les messages sont envoyés à contact@goodturnstudio.fr via [Web3Forms](https://web3forms.com) (gratuit jusqu'à 250 messages par mois). La clé d'accès (`WEB3FORMS_KEY`) et l'objet des emails (`EMAIL_SUBJECT`) se règlent en haut de `js/main.js`.
 
 **Après une modification du CSS ou du JS** : augmentez le numéro `?v=` dans `index.html` pour que les visiteurs ne gardent pas l'ancienne version en cache.
 

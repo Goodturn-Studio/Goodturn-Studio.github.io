@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <!-- Changez « ?v= » à chaque mise à jour pour que les navigateurs rechargent les fichiers -->
-  <link rel="stylesheet" href="css/style.css?v=7">
+  <link rel="stylesheet" href="css/style.css?v=8">
 </head>
 <body>
 
@@ -195,9 +195,8 @@
             <label for="cf-message"><span data-i18n="contact.message">Message</span> <span class="req" aria-hidden="true">*</span></label>
             <textarea id="cf-message" name="message" rows="5" required></textarea>
           </div>
-          <!-- Réglages FormSubmit + anti-spam (champ invisible que seuls les robots remplissent) -->
-          <input type="hidden" name="_template" value="table">
-          <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <!-- Anti-spam Web3Forms : case invisible que seuls les robots cochent -->
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
           <button type="submit" class="btn btn-primary" data-i18n="contact.send">Envoyer</button>
           <p class="form-feedback" id="form-feedback" role="status"></p>
         </form>
@@ -211,9 +210,9 @@
     </div>
   </footer>
 
-  <script src="js/i18n.js?v=7" defer></script>
-  <script src="js/projects.js?v=7" defer></script>
-  <script src="js/main.js?v=7" defer></script>
-  <script src="js/game.js?v=7" defer></script>
+  <script src="js/i18n.js?v=8" defer></script>
+  <script src="js/projects.js?v=8" defer></script>
+  <script src="js/main.js?v=8" defer></script>
+  <script src="js/game.js?v=8" defer></script>
 </body>
 </html>
