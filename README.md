@@ -21,4 +21,4 @@ Site statique (HTML, CSS, JavaScript), sans outil de compilation. Ouvrez `index.
 
 ## Mise en ligne
 
-Glissez-déposez le dossier sur [Netlify Drop](https://app.netlify.com/drop), ou activez GitHub Pages sur le dépôt. Les deux options sont gratuites.
+Le site est hébergé sur GitHub Pages et publié sur https://goodturnstudio.fr. Chaque `git push` sur `main` le met à jour en une minute environ. Le fichier `CNAME` contient le nom de domaine : ne le supprimez pas.
