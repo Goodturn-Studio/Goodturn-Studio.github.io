@@ -4,6 +4,10 @@
   // l'adresse email par l'alias fourni par FormSubmit pour ne plus l'afficher dans le code.
   const CONTACT_ENDPOINT = 'https://formsubmit.co/ajax/contact@goodturnstudio.fr';
 
+  // Objet des emails reçus : {name} et {role} sont remplacés par les valeurs du formulaire.
+  const EMAIL_SUBJECT = 'Nouveau message de {name} ({role}) - goodturnstudio.fr';
+  const ROLE_LABELS = { publisher: 'Éditeur', author: 'Auteur', player: 'Joueur', other: 'Autre' };
+
   const { t } = window.GT;
 
   /* ---------- Langue ---------- */
@@ -103,7 +107,12 @@
     });
     if (!valid) return setFeedback('contact.invalid', 'err');
 
-    if (!CONTACT_ENDPOINT) return setFeedback('contact.notReady', 'info');
+    const data = new FormData(form);
+    const name = data.get('name').trim();
+    const role = ROLE_LABELS[data.get('role')] || data.get('role');
+    data.set('role', role);
+    data.set('_subject', EMAIL_SUBJECT.replace('{name}', name).replace('{role}', role));
+    data.set('_replyto', data.get('email').trim());
 
     const button = form.querySelector('button[type="submit"]');
     button.disabled = true;
@@ -112,10 +121,10 @@
       const res = await fetch(CONTACT_ENDPOINT, {
         method: 'POST',
         headers: { Accept: 'application/json' },
-        body: new FormData(form)
+        body: data
       });
-      const data = await res.json().catch(() => ({}));
-      if (!res.ok || String(data.success) !== 'true') throw new Error(data.message || res.status);
+      const result = await res.json().catch(() => ({}));
+      if (!res.ok || String(result.success) !== 'true') throw new Error(result.message || res.status);
       form.reset();
       setFeedback('contact.ok', 'ok');
     } catch (err) {

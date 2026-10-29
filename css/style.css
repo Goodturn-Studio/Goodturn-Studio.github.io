@@ -613,6 +613,7 @@ textarea {
 
 .field { display: grid; gap: 6px; }
 .field label { font-weight: 800; font-size: .92rem; }
+.field .req { color: #E0261B; }
 .field input,
 .field select,
 .field textarea { width: 100%; }
