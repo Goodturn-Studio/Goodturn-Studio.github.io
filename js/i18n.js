@@ -11,14 +11,11 @@
       'nav.play': 'Jouer',
       'nav.contact': 'Contact',
 
-      'hero.kicker': 'Studio de jeux vidéo',
       'hero.title': 'Vos jeux de société, <em>en encore mieux</em>.',
       'hero.text': 'Goodturn Studio adapte les jeux de société en jeux vidéo pour PC et mobile : plus beaux, plus simples à prendre en main, avec des IA à affronter et des modes de jeu inédits.',
-      'hero.cta1': 'Jouer à notre mini-jeu',
       'hero.cta2': 'Nous contacter',
       'hero.playLink': 'Jouer à Volte-face',
 
-      'features.kicker': 'Le studio',
       'features.title': 'Ce que le numérique apporte à votre jeu',
       'f1.title': 'Plus beau qu’en vrai',
       'f1.text': 'Animations, effets et plateaux vivants : votre univers prend une toute nouvelle dimension.',
@@ -31,7 +28,6 @@
       'f5.title': 'Sur PC et mobile',
       'f5.text': 'Jouable sur ordinateur, téléphone et tablette, avec une interface pensée pour chaque écran.',
 
-      'projects.kicker': 'Projets',
       'projects.title': 'Nos jeux',
       'projects.empty': 'Nos premiers titres sont en préparation. Revenez bientôt… ou proposez-nous le vôtre !',
       'projects.lead': 'Les jeux sur lesquels nous travaillons.',
@@ -41,7 +37,6 @@
       'projects.backCta': 'Parlons-en',
       'projects.more': 'En savoir plus',
 
-      'game.kicker': 'Mini-jeu maison',
       'game.title': 'Volte-face',
       'game.intro': 'Un petit jeu original conçu par le studio. Retournez les flèches, déclenchez des réactions en chaîne et prenez le contrôle du plateau.',
       'game.new': 'Nouvelle partie',
@@ -63,7 +58,6 @@
       'game.over': 'Partie terminée',
       'game.cell': 'Case ligne {r}, colonne {c}',
 
-      'contact.kicker': 'Contact',
       'contact.title': 'Parlons de votre jeu',
       'contact.text': 'Éditeur, auteur ou simplement curieux ? Écrivez-nous, on vous répond rapidement.',
       'contact.name': 'Nom',
@@ -91,14 +85,11 @@
       'nav.play': 'Play',
       'nav.contact': 'Contact',
 
-      'hero.kicker': 'Video game studio',
       'hero.title': 'Your board games, <em>only better</em>.',
       'hero.text': 'Goodturn Studio turns board games into video games for PC and mobile: better looking, easier to pick up, with AI opponents and brand-new game modes.',
-      'hero.cta1': 'Play our mini-game',
       'hero.cta2': 'Get in touch',
       'hero.playLink': 'Play Turnabout',
 
-      'features.kicker': 'The studio',
       'features.title': 'What going digital brings to your game',
       'f1.title': 'Better than the real thing',
       'f1.text': 'Animations, effects and living boards: your world reaches a whole new dimension.',
@@ -111,7 +102,6 @@
       'f5.title': 'On PC and mobile',
       'f5.text': 'Playable on computer, phone and tablet, with an interface designed for every screen.',
 
-      'projects.kicker': 'Projects',
       'projects.title': 'Our games',
       'projects.empty': 'Our first titles are in the works. Come back soon… or pitch us yours!',
       'projects.lead': 'The games we are working on.',
@@ -121,7 +111,6 @@
       'projects.backCta': 'Let’s talk',
       'projects.more': 'Learn more',
 
-      'game.kicker': 'Home-made mini-game',
       'game.title': 'Turnabout',
       'game.intro': 'A small original game made by the studio. Flip the arrows, trigger chain reactions and take over the board.',
       'game.new': 'New game',
@@ -143,7 +132,6 @@
       'game.over': 'Game over',
       'game.cell': 'Tile row {r}, column {c}',
 
-      'contact.kicker': 'Contact',
       'contact.title': 'Let’s talk about your game',
       'contact.text': 'Publisher, designer or just curious? Drop us a line, we’ll get back to you quickly.',
       'contact.name': 'Name',
