@@ -336,10 +336,13 @@ a { color: inherit; }
 
 .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   gap: 22px;
   margin-top: 36px;
 }
+
+/* À côté d'un vrai jeu, les cartes « Bientôt » prennent la hauteur de sa carte */
+.projects:has(.project-card) .flip-card { aspect-ratio: auto; max-height: none; min-height: 320px; }
 
 .project-card {
   overflow: hidden;
@@ -362,6 +365,7 @@ a { color: inherit; }
   font-size: .8rem;
 }
 .project-link { font-weight: 800; color: var(--coral-dark); }
+.project-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 4px; }
 
 /* Cartes face cachée tant qu'il n'y a pas de projet */
 .flip-card {
@@ -644,6 +648,46 @@ textarea {
 .site-footer { padding: 28px 0; background: var(--ink); color: rgba(255, 248, 238, .6); font-size: .95rem; border-top: 1px solid rgba(255, 248, 238, .12); }
 .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
 
+/* ---------- Pages « jouer en ligne » ---------- */
+
+.back-link {
+  font-weight: 700;
+  text-decoration: none;
+  padding: .4em .9em;
+  border-radius: 999px;
+  transition: background .15s ease;
+}
+.back-link:hover { background: var(--cream-deep); }
+
+.play-main { padding: 24px 0 48px; }
+.play-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px 24px;
+  margin-bottom: 18px;
+}
+.play-title { margin: 0; font-size: clamp(1.8rem, 3.2vw, 2.4rem); line-height: 1.15; }
+.play-lead { margin: 6px 0 0; max-width: 620px; color: var(--ink-soft); }
+
+.play-frame {
+  position: relative;
+  width: 100%;
+  max-height: max(320px, calc(100vh - 210px));
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+  overflow: hidden;
+  background: #A8D4EC; /* même fond que l'écran de chargement du jeu */
+  border: 3px solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 0 var(--ink);
+}
+.play-frame iframe { display: block; width: 100%; height: 100%; border: 0; }
+.play-frame:fullscreen { max-height: none; border: 0; border-radius: 0; box-shadow: none; }
+
+.play-hint { margin: 22px 0 0; color: var(--ink-soft); font-size: .95rem; text-align: center; }
+
 /* ---------- Responsive ---------- */
 
 @media (max-width: 960px) {
@@ -656,9 +700,11 @@ textarea {
   .hero-inner,
   .contact { grid-template-columns: 1fr; gap: 32px; }
   .hero-art { min-height: 300px; }
-  .flip-card { aspect-ratio: 5 / 4; }
+  .flip-card,
+  .projects:has(.project-card) .flip-card { aspect-ratio: 5 / 4; min-height: 0; }
   .main-nav { display: none; }
   .section { padding: 72px 0; }
+  .play-frame { aspect-ratio: 4 / 3; }
 }
 
 @media (max-width: 480px) {
@@ -667,6 +713,8 @@ textarea {
   .game-board { gap: 6px; padding: 10px; }
   .header-inner { padding: 0 16px; }
   .brand-name { font-size: 1.15rem; }
+  .back-link { display: none; }
+  .play-frame { aspect-ratio: 3 / 4; max-height: calc(100vh - 100px); }
 }
 
 @media (prefers-reduced-motion: reduce) {

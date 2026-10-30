@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes">
+    <title>Petits Chevaux</title>
+    <style>
+      /* The game fills its page: put this page in an <iframe> of any size on the website. */
+      html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #A8D4EC; }
+      #unity-canvas { position: fixed; left: 0; top: 0; width: 100%; height: 100%; display: block; background: #A8D4EC; outline: none; }
+      #loader {
+        position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+        background: radial-gradient(circle at 50% 40%, #CBE6F4 0%, #A8D4EC 55%, #86BFD9 100%);
+        font-family: "Trebuchet MS", Arial, sans-serif; color: #4E2C1A; transition: opacity 0.5s ease;
+      }
+      #loader.done { opacity: 0; pointer-events: none; }
+      #title { font-size: clamp(32px, 7vw, 68px); font-weight: bold; letter-spacing: 1px; margin-bottom: 6px; }
+      #title span:nth-child(4n+1) { color: #D9473C; }
+      #title span:nth-child(4n+2) { color: #3E7CC9; }
+      #title span:nth-child(4n+3) { color: #E8B630; }
+      #title span:nth-child(4n+4) { color: #4E9A4B; }
+      #subtitle { font-size: clamp(14px, 2.2vw, 18px); opacity: 0.75; margin-bottom: 26px; }
+      #bar { width: min(420px, 70vw); height: 18px; border-radius: 12px; background: #FBF5E6; border: 3px solid #C99A4E; overflow: hidden; }
+      #fill { width: 0%; height: 100%; background: #D9473C; border-radius: 8px; transition: width 0.2s ease; }
+      #status { margin-top: 12px; font-size: 14px; opacity: 0.7; }
+      #error { display: none; max-width: 80vw; margin-top: 18px; padding: 12px 18px; border-radius: 12px; background: #FBF5E6; color: #9B3D2A; text-align: center; }
+    </style>
+  </head>
+  <body>
+    <canvas id="unity-canvas" tabindex="-1"></canvas>
+    <div id="loader">
+      <div id="title"></div>
+      <div id="subtitle">Préparation des écuries…</div>
+      <div id="bar"><div id="fill"></div></div>
+      <div id="status">0 %</div>
+      <div id="error"></div>
+    </div>
+    <script>
+      // Multicolored title, like in the game.
+      var title = document.getElementById("title");
+      var productTitle = "Petits Chevaux";
+      for (var i = 0; i < productTitle.length; i++) {
+        if (productTitle[i] === " ") { title.appendChild(document.createTextNode(" ")); continue; }
+        var s = document.createElement("span");
+        s.textContent = productTitle[i];
+        title.appendChild(s);
+      }
+
+      var canvas = document.querySelector("#unity-canvas");
+      var fill = document.getElementById("fill");
+      var statusText = document.getElementById("status");
+      var config = {
+        arguments: [],
+        dataUrl: "Build/Builds.data.unityweb",
+        frameworkUrl: "Build/Builds.framework.js.unityweb",
+        codeUrl: "Build/Builds.wasm.unityweb",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "LesZigotos",
+        productName: "Petits Chevaux",
+        productVersion: "0.1.0",
+      };
+      // Phones: cap the resolution to keep the frame rate up.
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) config.devicePixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+
+      var script = document.createElement("script");
+      script.src = "Build/Builds.loader.js";
+      script.onload = function () {
+        createUnityInstance(canvas, config, function (progress) {
+          var p = Math.round(progress * 100);
+          fill.style.width = p + "%";
+          statusText.textContent = p + " %";
+        }).then(function (unityInstance) {
+          document.getElementById("loader").classList.add("done");
+          canvas.focus();
+        }).catch(function (message) {
+          var error = document.getElementById("error");
+          error.style.display = "block";
+          error.textContent = "Le jeu n'a pas pu démarrer : " + message;
+        });
+      };
+      document.body.appendChild(script);
+    </script>
+  </body>
+</html>

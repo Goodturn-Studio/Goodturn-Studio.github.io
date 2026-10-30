@@ -39,49 +39,55 @@
     const projects = window.GT_PROJECTS || [];
     grid.replaceChildren();
 
-    if (!projects.length) {
-      lead.dataset.i18n = 'projects.empty';
-      lead.textContent = t('projects.empty');
-      CARD_COLORS.forEach(color => {
-        const card = el('div', { class: 'flip-card', tabindex: '0', role: 'button', 'aria-label': t('projects.soon') }, [
-          el('div', { class: 'flip-inner' }, [
-            el('div', { class: 'flip-face flip-front', style: `--card-color:${color}` }, [
-              el('span', { class: 'q', text: '?' }),
-              el('span', { class: 'label', text: t('projects.soon') })
-            ]),
-            el('div', { class: 'flip-face flip-back' }, [
-              el('h3', { text: t('projects.backTitle') }),
-              el('p', { text: t('projects.backText') }),
-              el('a', { href: '#contact', class: 'btn btn-primary btn-small', text: t('projects.backCta') })
-            ])
-          ])
-        ]);
-        // Sur mobile (pas de survol), on retourne la carte au toucher
-        card.addEventListener('click', e => {
-          if (e.target.closest('a')) return;
-          card.classList.toggle('flipped');
-        });
-        card.addEventListener('keydown', e => {
-          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.classList.toggle('flipped'); }
-        });
-        grid.appendChild(card);
-      });
-      return;
-    }
+    // Un texte est soit { fr, en }, soit { key } pointant vers js/i18n.js
+    const txt = v => !v ? '' : v.key ? t(v.key) : (v[lang] || v.fr || '');
 
-    lead.dataset.i18n = 'projects.lead';
-    lead.textContent = t('projects.lead');
+    const leadKey = projects.length ? 'projects.lead' : 'projects.empty';
+    lead.dataset.i18n = leadKey;
+    lead.textContent = t(leadKey);
+
+    // 1) Les jeux de GT_PROJECTS
     projects.forEach(p => {
-      const body = el('div', { class: 'project-body' }, [
-        ...(p.status ? [el('span', { class: 'project-status', text: p.status[lang] || p.status.fr })] : []),
-        el('h3', { text: p.title }),
-        el('p', { text: (p.description && (p.description[lang] || p.description.fr)) || '' }),
+      const actions = [
+        ...(p.play ? [el('a', { class: 'btn btn-primary btn-small', href: p.play, text: t('projects.play') })] : []),
         ...(p.link ? [el('a', { class: 'project-link', href: p.link, target: '_blank', rel: 'noopener', text: t('projects.more') + ' →' })] : [])
+      ];
+      const body = el('div', { class: 'project-body' }, [
+        ...(p.status ? [el('span', { class: 'project-status', text: txt(p.status) })] : []),
+        el('h3', { text: p.title }),
+        el('p', { text: txt(p.description) }),
+        ...(actions.length ? [el('div', { class: 'project-actions' }, actions)] : [])
       ]);
       grid.appendChild(el('article', { class: 'project-card' }, [
         ...(p.image ? [el('img', { src: p.image, alt: p.title, loading: 'lazy' })] : []),
         body
       ]));
+    });
+
+    // 2) Toujours suivis des cartes « Bientôt » (une par couleur de CARD_COLORS)
+    CARD_COLORS.forEach(color => {
+      const card = el('div', { class: 'flip-card', tabindex: '0', role: 'button', 'aria-label': t('projects.soon') }, [
+        el('div', { class: 'flip-inner' }, [
+          el('div', { class: 'flip-face flip-front', style: `--card-color:${color}` }, [
+            el('span', { class: 'q', text: '?' }),
+            el('span', { class: 'label', text: t('projects.soon') })
+          ]),
+          el('div', { class: 'flip-face flip-back' }, [
+            el('h3', { text: t('projects.backTitle') }),
+            el('p', { text: t('projects.backText') }),
+            el('a', { href: '#contact', class: 'btn btn-primary btn-small', text: t('projects.backCta') })
+          ])
+        ])
+      ]);
+      // Sur mobile (pas de survol), on retourne la carte au toucher
+      card.addEventListener('click', e => {
+        if (e.target.closest('a')) return;
+        card.classList.toggle('flipped');
+      });
+      card.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.classList.toggle('flipped'); }
+      });
+      grid.appendChild(card);
     });
   }
 

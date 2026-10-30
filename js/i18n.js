@@ -36,6 +36,18 @@
       'projects.backText': 'Vous avez un jeu de société qui mérite sa version numérique ?',
       'projects.backCta': 'Parlons-en',
       'projects.more': 'En savoir plus',
+      'projects.play': 'Jouer en ligne',
+
+      'pc.metaTitle': 'Petits Chevaux, à jouer en ligne · Goodturn Studio',
+      'pc.metaDescription': 'Jouez aux Petits Chevaux en ligne, directement dans votre navigateur.',
+      'pc.title': 'Petits Chevaux',
+      'pc.lead': 'Le grand classique, en version numérique. Lancez les dés et ramenez vos chevaux à l’écurie avant les autres !',
+      'pc.status': 'Jouable en ligne',
+      'pc.description': 'Le grand classique du jeu de plateau, avec un mode inédit : la Bataille hippique, ses cases bonus et ses objets.',
+
+      'play.back': '← Tous nos jeux',
+      'play.fullscreen': 'Plein écran',
+      'play.hint': 'Le premier chargement peut prendre quelques secondes (environ 30 Mo). Le jeu se joue mieux sur ordinateur ou tablette.',
 
       'game.title': 'Volte-face',
       'game.intro': 'Un petit jeu original conçu par le studio. Retournez les flèches, déclenchez des réactions en chaîne et prenez le contrôle du plateau.',
@@ -110,6 +122,18 @@
       'projects.backText': 'Got a board game that deserves its digital version?',
       'projects.backCta': 'Let’s talk',
       'projects.more': 'Learn more',
+      'projects.play': 'Play online',
+
+      'pc.metaTitle': 'Petits Chevaux, play online · Goodturn Studio',
+      'pc.metaDescription': 'Play Petits Chevaux online, right in your browser.',
+      'pc.title': 'Petits Chevaux',
+      'pc.lead': 'The great classic, gone digital. Roll the dice and bring your horses home before everyone else!',
+      'pc.status': 'Play online',
+      'pc.description': 'The classic board game, plus a brand-new mode: Horse Battle, with bonus squares and items.',
+
+      'play.back': '← All our games',
+      'play.fullscreen': 'Fullscreen',
+      'play.hint': 'The first load may take a few seconds (about 30 MB). The game plays best on a computer or tablet.',
 
       'game.title': 'Turnabout',
       'game.intro': 'A small original game made by the studio. Flip the arrows, trigger chain reactions and take over the board.',
@@ -170,9 +194,10 @@
 
   function apply() {
     document.documentElement.lang = lang;
-    document.title = t('meta.title');
+    // Une page peut choisir ses propres clés : <body data-i18n-title="…" data-i18n-description="…">
+    document.title = t(document.body.dataset.i18nTitle || 'meta.title');
     const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.content = t('meta.description');
+    if (meta) meta.content = t(document.body.dataset.i18nDescription || 'meta.description');
 
     document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = t(el.dataset.i18n); });
     document.querySelectorAll('[data-i18n-html]').forEach(el => { el.innerHTML = t(el.dataset.i18nHtml); });
